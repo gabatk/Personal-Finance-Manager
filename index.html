@@ -97,27 +97,34 @@
 
 		<div class="add-transaction__panel">
 			<h2 class="add-transaction__title title">Add new transaction</h2>
-			<label for="name">Nazwa</label>
-			<small>(enter the name of the transaction)</small>
+			<label for="name" class="add-transaction__label">Name</label>
+			<small class="add-transaction__extra-info"
+				>(enter the name of the transaction)</small
+			>
 			<input type="text" id="name" />
 
-			<label for="amount">Nazwa</label>
-			<small
+			<label for="amount" class="add-transaction__label">Amount</label>
+			<small class="add-transaction__extra-info"
 				>(enter the transaction amount, if it is an expense, add a minus sign at
 				the beginning of the amount)</small
 			>
 			<input type="number" id="amount" />
 
-			<label for="category">Select category</label>
-			<small>( [ + ] means income, [ - ] means expenditure)</small>
+			<label for="category" class="add-transaction__label"
+				>Select category</label
+			>
+			<small class="add-transaction__extra-info"
+				>( [ + ] means income, [ - ] means expenditure)</small
+			>
 			<select id="category">
+				<option value="none" selected disabled></option>
 				<option value="income">[ + ] income</option>
 				<option value="shopping">[ - ] Shopping</option>
 				<option value="food">[ - ] Food</option>
 				<option value="entertainment">[ - ] Entertainment</option>
 			</select>
 
-			<div class="panel-buttons">
+			<div class="add-transaction__panel-buttons">
 				<button class="save"><i class="fas fa-save"></i> Save</button>
 				<button class="cancel">
 					<i class="far fa-window-close"></i> Cancel
