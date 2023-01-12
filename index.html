@@ -16,52 +16,54 @@
 			crossorigin="anonymous"></script>
 	</head>
 	<body>
-		<header>
-			<h1><i class="fa-solid fa-sack-dollar"></i> Penny pincher</h1>
-			<p>Your personal finance manager.</p>
+		<header class="header">
+			<h1 class="header__title">
+				<i class="fa-solid fa-sack-dollar"></i> Penny pincher
+			</h1>
+			<p class="header__info">Your personal finance manager.</p>
 		</header>
 
 		<main>
 			<section class="transactions">
-				<h2 class="transactions__title">Transaction list</h2>
-				<div class="transaction-list">
+				<h2 class="transactions__title title">Transaction list</h2>
+				<div class="transactions__transaction-list">
 					<div class="income-area">
-						<h3>Income:</h3>
+						<h3 class="transactions__title income-title">Income:</h3>
 						<div class="transaction" id="0">
-							<p class="income__transaction-name">
+							<p class="transaction__name">
 								<i class="fas fa-money-bill-wave"></i> Salary
 							</p>
-							<p class="income__transaction-amount">
+							<p class="transaction__amount income-amount">
 								2000zł
 								<button class="delete"><i class="fas fa-times"></i></button>
 							</p>
 						</div>
 					</div>
 					<div class="expenses-area">
-						<h3>Expenditures:</h3>
-						<div class="expenses__transaction" id="1">
-							<p class="expenses__transaction-name">
+						<h3 class="transactions__title expense-title">Expenses:</h3>
+						<div class="transaction" id="1">
+							<p class="transaction__name">
 								<i class="fas fa-cart-arrow-down"></i> Shopping
 							</p>
-							<p class="expenses__transaction-amount">
+							<p class="transaction-amount expense-amount">
 								-400zł
 								<button class="delete"><i class="fas fa-times"></i></button>
 							</p>
 						</div>
-						<div class="expenses_transaction" id="2">
-							<p class="expenses__transaction-name">
+						<div class="transaction" id="2">
+							<p class="transaction__name">
 								<i class="fas fa-hamburger"></i> Food
 							</p>
-							<p class="expenses__transaction-amount">
+							<p class="transaction__amount expense-amount">
 								-1000zł
 								<button class="delete"><i class="fas fa-times"></i></button>
 							</p>
 						</div>
-						<div class="expenses_transaction" id="3">
-							<p class="expenses__transaction-name">
+						<div class="transaction" id="3">
+							<p class="transaction__name">
 								<i class="fas fa-film"></i> Entertainment
 							</p>
-							<p class="expenses__transaction-amount">
+							<p class="transaction__amount expense-amount">
 								-80zł
 								<button class="delete"><i class="fas fa-times"></i></button>
 							</p>
@@ -72,7 +74,7 @@
 
 			<section class="options">
 				<div>
-					<h2 class="options__title">Available funds:</h2>
+					<h2 class="options__title title">Available funds:</h2>
 					<p class="options__available-money">0zł</p>
 				</div>
 				<div class="controls">
@@ -84,7 +86,7 @@
 					</button>
 				</div>
 				<div class="style-selection">
-					<h2 class="style__title">Select style:</h2>
+					<h2 class="style__title title">Select style:</h2>
 					<div class="style__color-buttons">
 						<button class="light"></button>
 						<button class="dark"></button>
@@ -93,7 +95,7 @@
 			</section>
 
 			<div class="add-transaction__panel">
-				<h2 class="add-transaction__title">Add new transaction</h2>
+				<h2 class="add-transaction__title title">Add new transaction</h2>
 				<label for="name">Nazwa</label>
 				<small>(enter the name of the transaction)</small>
 				<input type="text" id="name" />
