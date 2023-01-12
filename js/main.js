@@ -20,3 +20,17 @@ let ID = 0;
 let categoryIcon;
 let selectedCategory;
 let moneyArr = [0];
+
+const addTransaction = () => {
+	addTransactionPanel.style.display = 'flex';
+};
+
+const doNotAdd = () => {
+	addTransactionPanel.style.display = 'none';
+	NameInput.value = '';
+	AmountInput.value = '';
+	CategorySelect.selectedIndex = 0;
+};
+
+addTransactionBtn.addEventListener('click', addTransaction);
+cancelBtn.addEventListener('click', doNotAdd);
