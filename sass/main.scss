@@ -106,3 +106,86 @@ main {
 		}
 	}
 }
+
+.delete {
+	margin-left: 10px;
+	background: none;
+	border: none;
+	font-size: 1.8rem;
+	color: var(--second-color);
+	cursor: pointer;
+	transition: transform 0.3s;
+
+	&:hover {
+		transform: scale(0.8);
+	}
+}
+
+.options {
+	padding: 80px 40px;
+	width: 500px;
+	border: 1px solid var(--border-color);
+
+	&__available-money {
+		margin-top: -10px;
+		text-align: center;
+		font-size: 6rem;
+	}
+}
+
+.controls {
+	display: flex;
+	justify-content: space-around;
+	margin: 50px 0;
+
+	&__button {
+		padding: 12px 20px;
+		color: var(--second-color);
+		border: 1px solid var(--border-color);
+		border-radius: 5px;
+		background: none;
+		cursor: pointer;
+		transition: color 0.3s, background-color 0.3s;
+
+		&:hover {
+			color: var(--first-color);
+			background-color: var(--second-color);
+		}
+
+		& i {
+			margin-right: 10px;
+		}
+	}
+}
+
+.style {
+	&-selection {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	&__color-light,
+	&__color-dark {
+		margin: 0 30px;
+		height: 50px;
+		width: 50px;
+		border-radius: 50%;
+		cursor: pointer;
+		transition: transform 0.3s;
+
+		&:hover {
+			transform: scale(0.9);
+		}
+	}
+
+	&__color-light {
+		background-color: #f9f9f9;
+		border: 1px solid #14161f;
+	}
+
+	&__color-dark {
+		background-color: #14161f;
+		border: 1px solid #f9f9f9;
+	}
+}

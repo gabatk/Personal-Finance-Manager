@@ -99,4 +99,75 @@ main {
 }
 .transaction__name i {
   margin-right: 10px;
+}
+
+.delete {
+  margin-left: 10px;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: var(--second-color);
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+.delete:hover {
+  transform: scale(0.8);
+}
+
+.options {
+  padding: 80px 40px;
+  width: 500px;
+  border: 1px solid var(--border-color);
+}
+.options__available-money {
+  margin-top: -10px;
+  text-align: center;
+  font-size: 6rem;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-around;
+  margin: 50px 0;
+}
+.controls__button {
+  padding: 12px 20px;
+  color: var(--second-color);
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  background: none;
+  cursor: pointer;
+  transition: color 0.3s, background-color 0.3s;
+}
+.controls__button:hover {
+  color: var(--first-color);
+  background-color: var(--second-color);
+}
+.controls__button i {
+  margin-right: 10px;
+}
+
+.style-selection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.style__color-light, .style__color-dark {
+  margin: 0 30px;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+.style__color-light:hover, .style__color-dark:hover {
+  transform: scale(0.9);
+}
+.style__color-light {
+  background-color: #f9f9f9;
+  border: 1px solid #14161f;
+}
+.style__color-dark {
+  background-color: #14161f;
+  border: 1px solid #f9f9f9;
 }/*# sourceMappingURL=main.css.map */
