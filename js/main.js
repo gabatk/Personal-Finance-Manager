@@ -21,21 +21,30 @@ let categoryIcon;
 let selectedCategory;
 let moneyArr = [0];
 
-const addTransaction = () => {
+const openTransactionPanel = () => {
 	addTransactionPanel.style.display = 'flex';
 };
 
-const doNotAdd = () => {
+const closeTransactionPanel = () => {
 	addTransactionPanel.style.display = 'none';
 	NameInput.value = '';
 	AmountInput.value = '';
 	CategorySelect.selectedIndex = 0;
 };
 
+const addTransaction = () => {
+	if (
+		NameInput.value !== '' &&
+		AmountInput.value !== '' &&
+		CategorySelect.selectedIndex !== 0
+	) {
+		addTransactionPanel.style.display = 'none';
+	}
+};
 
-
-addTransactionBtn.addEventListener('click', addTransaction);
-cancelBtn.addEventListener('click', doNotAdd);
+addTransactionBtn.addEventListener('click', openTransactionPanel);
+cancelBtn.addEventListener('click', closeTransactionPanel);
+saveBtn.addEventListener('click', addTransaction);
 
 lightStyle.addEventListener('click', () => {
 	root.style.setProperty('--first-color', '#f9f9f9');
