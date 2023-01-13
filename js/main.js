@@ -48,6 +48,39 @@ const clearInputs = () => {
 	categorySelect.selectedIndex = 0;
 };
 
+const createNewTransaction = () => {
+	const newTransaction = document.createElement('div');
+	newTransaction.classList.add('transaction');
+	newTransaction.setAttribute('id', ID);
+
+	newTransaction.innerHTML = `<p class="transaction__name"> ${categoryIcon} ${nameInput.value}
+</p>
+<p class="transaction__amount income-amount">
+${amountInput.value}zł
+<button class="delete" onclick="deleteTransaction(${ID})"><i class="fas fa-times"></i></button>
+</p>`;
+
+	if (amountInput.value > 0) {
+		incomeSection.appendChild(newTransaction);
+		newTransaction.classList.add('income');
+	} else {
+		expensesSection.appendChild(newTransaction);
+		newTransaction.classList.add('expense');
+	}
+
+	// amountInput.value > 0
+	// 	? incomeSection.appendChild(newTransaction) &&
+	// 	  newTransaction.classList.add('income-title')
+	// 	: expensesSection.appendChild(newTransaction) &&
+	// 	  newTransaction.classList.add('expense-title');
+
+	moneyArr.push(parseFloat(amountInput.value));
+
+	closeTransactionPanel();
+	ID++;
+	clearInputs();
+};
+
 addTransactionBtn.addEventListener('click', openTransactionPanel);
 cancelBtn.addEventListener('click', closeTransactionPanel);
 saveBtn.addEventListener('click', checkForm);
