@@ -20,6 +20,7 @@ let ID = 0;
 let categoryIcon;
 let selectedCategory;
 let moneyArr = [0];
+let transactionType = '';
 
 const openTransactionPanel = () => {
 	addTransactionPanel.style.display = 'flex';
@@ -36,7 +37,7 @@ const checkForm = () => {
 		amountInput.value !== '' &&
 		categorySelect.value !== 'none'
 	) {
-		addTransactionPanel.style.display = 'none';
+		createNewTransaction();
 	} else {
 		alert('You should fill in all the fields.');
 	}
@@ -48,19 +49,30 @@ const clearInputs = () => {
 	categorySelect.selectedIndex = 0;
 };
 
+const checkTransactionType = () => {
+	if (amountInput.value > 0) {
+		transactionType = 'income';
+	} else {
+		transactionType = 'expense';
+	}
+};
+
 const createNewTransaction = () => {
 	const newTransaction = document.createElement('div');
 	newTransaction.classList.add('transaction');
 	newTransaction.setAttribute('id', ID);
 
+	checkCategory(selectedCategory);
+	checkTransactionType();
+
 	newTransaction.innerHTML = `<p class="transaction__name"> ${categoryIcon} ${nameInput.value}
 </p>
-<p class="transaction__amount income-amount">
+<p class="transaction__amount ${transactionType}-amount">
 ${amountInput.value}zł
 <button class="delete" onclick="deleteTransaction(${ID})"><i class="fas fa-times"></i></button>
 </p>`;
 
-	if (amountInput.value > 0) {
+	if (transactionType === 'income') {
 		incomeSection.appendChild(newTransaction);
 		newTransaction.classList.add('income');
 	} else {
@@ -79,6 +91,27 @@ ${amountInput.value}zł
 	closeTransactionPanel();
 	ID++;
 	clearInputs();
+};
+
+const selectCategory = () => {
+	selectedCategory = categorySelect.options[categorySelect.selectedIndex].text;
+};
+
+const checkCategory = transaction => {
+	switch (transaction) {
+		case '[ + ] Income':
+			categoryIcon = '<i class="fas fa-money-bill-wave"></i>';
+			break;
+		case '[ - ] Shopping':
+			categoryIcon = '<i class="fas fa-cart-arrow-down"></i>';
+			break;
+		case '[ - ] Food':
+			categoryIcon = '<i class="fas fa-hamburger"></i>';
+			break;
+		case '[ - ] Entertainment':
+			categoryIcon = '<i class="fas fa-film"></i>';
+			break;
+	}
 };
 
 addTransactionBtn.addEventListener('click', openTransactionPanel);
