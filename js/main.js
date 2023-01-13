@@ -88,6 +88,7 @@ ${amountInput.value}zł
 
 	moneyArr.push(parseFloat(amountInput.value));
 
+	countTransactionAmount(moneyArr);
 	closeTransactionPanel();
 	ID++;
 	clearInputs();
@@ -112,6 +113,11 @@ const checkCategory = transaction => {
 			categoryIcon = '<i class="fas fa-film"></i>';
 			break;
 	}
+};
+
+const countTransactionAmount = money => {
+	availableFunds = money.reduce((a, b) => a + b);
+	availableMoney.textContent = `${availableFunds}zł`;
 };
 
 addTransactionBtn.addEventListener('click', openTransactionPanel);
