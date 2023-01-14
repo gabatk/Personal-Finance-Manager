@@ -6,10 +6,16 @@
 	padding: 0;
 }
 
-:root {
+[data-mode='light'] {
 	--first-color: #f9f9f9;
 	--second-color: #14161f;
 	--border-color: rgba(0, 0, 0, 0.2);
+}
+
+[data-mode='dark'] {
+	--first-color: #14161f;
+	--second-color: #f9f9f9;
+	--border-color: rgba(255, 255, 255, 0.4);
 }
 
 html {

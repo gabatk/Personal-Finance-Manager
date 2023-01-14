@@ -1,3 +1,4 @@
+const body = document.querySelector('body');
 const incomeSection = document.querySelector('.income-area');
 const expensesSection = document.querySelector('.expenses-area');
 const availableMoney = document.querySelector('.options__available-money');
@@ -15,7 +16,6 @@ const cancelBtn = document.querySelector('.cancel');
 const lightStyle = document.querySelector('.style__color-light');
 const darkStyle = document.querySelector('.style__color-dark');
 
-let root = document.documentElement;
 let ID = 0;
 let categoryIcon;
 let selectedCategory;
@@ -142,19 +142,17 @@ const deleteAllTransactions = () => {
 	moneyArr = [0];
 };
 
+const handleColorMode = () => {
+	if (body.getAttribute('data-mode') === 'light') {
+		body.setAttribute('data-mode', 'dark');
+	} else {
+		body.setAttribute('data-mode', 'light');
+	}
+};
+
 addTransactionBtn.addEventListener('click', openTransactionPanel);
 cancelBtn.addEventListener('click', closeTransactionPanel);
 saveBtn.addEventListener('click', checkForm);
 deleteAllBtn.addEventListener('click', deleteAllTransactions);
-
-lightStyle.addEventListener('click', () => {
-	root.style.setProperty('--first-color', '#f9f9f9');
-	root.style.setProperty('--second-color', '#14161f');
-	root.style.setProperty('--border-color', 'rgba(0, 0, 0, 0.2)');
-});
-
-darkStyle.addEventListener('click', () => {
-	root.style.setProperty('--first-color', '#14161f');
-	root.style.setProperty('--second-color', '#f9f9f9');
-	root.style.setProperty('--border-color', 'rgba(255, 255, 255, 0.4)');
-});
+lightStyle.addEventListener('click', handleColorMode);
+darkStyle.addEventListener('click', handleColorMode);
