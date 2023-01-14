@@ -120,6 +120,20 @@ const countTransactionAmount = money => {
 	availableMoney.textContent = `${availableFunds}zł`;
 };
 
+const deleteTransaction = id => {
+	const transactionToDelete = document.getElementById(id);
+	transactionToDelete.remove();
+
+	const transactionAmount = parseFloat(
+		transactionToDelete.childNodes[2].innerText
+	);
+	const indexOfTransaction = moneyArr.indexOf(transactionAmount);
+
+	moneyArr.splice(indexOfTransaction, 1);
+
+	countTransactionAmount(moneyArr);
+};
+
 addTransactionBtn.addEventListener('click', openTransactionPanel);
 cancelBtn.addEventListener('click', closeTransactionPanel);
 saveBtn.addEventListener('click', checkForm);
