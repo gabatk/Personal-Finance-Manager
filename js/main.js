@@ -65,10 +65,8 @@ const createNewTransaction = () => {
 	checkCategory(selectedCategory);
 	checkTransactionType();
 
-	newTransaction.innerHTML = `<p class="transaction__name"> ${categoryIcon} ${nameInput.value}
-</p>
-<p class="transaction__amount ${transactionType}-amount">
-${amountInput.value}zł
+	newTransaction.innerHTML = `<p class="transaction__name"> ${categoryIcon} ${nameInput.value} </p>
+<p class="transaction__amount ${transactionType}-amount"> ${amountInput.value}zł
 <button class="delete" onclick="deleteTransaction(${ID})"><i class="fas fa-times"></i></button>
 </p>`;
 
@@ -123,8 +121,7 @@ const countTransactionAmount = money => {
 const deleteTransaction = id => {
 	const transactionToDelete = document.getElementById(id);
 	const transactionAmount = parseFloat(
-		transactionToDelete.childNodes[2].innerText
-	);
+		transactionToDelete.childNodes[2].innerText);
 	const indexOfTransaction = moneyArr.indexOf(transactionAmount);
 
 	moneyArr.splice(indexOfTransaction, 1);
